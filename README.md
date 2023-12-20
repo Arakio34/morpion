@@ -11,7 +11,7 @@ J'ai découpé ce projet en plusieur phase.
 	- Ecriture des methode et fonction de base permetent de faire fonctionner le jeux.
 
 ## Phase 2 
-	- Organisation sous forme de module. *Stade actuel*
+	- Organisation sous forme de module. **Stade actuel**
 	- Choix des joueurs au débuts du programme.
 	- Plusieur partie jouable.
 	- Sauvgarde des scores dans un fichier.
