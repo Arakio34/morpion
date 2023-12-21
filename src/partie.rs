@@ -37,21 +37,18 @@ impl Partie {
 		let tour : u8 = 1;
 		while self.etats
 		{
-			println!("Tours numeros {}",tour);
 			self.j1.joue = true;
 			let mut tour : u8 = 1;
 			while self.etats
 			{
-				println!("Tours numeros {}",tour);
+				println!("--- Tours numeros {} --- ",tour);
 				tour += 1;
 				match self.j1.joue{
 					true =>{
-						println!("{} joue avec les {}",self.j1.pseudo,
-							self.j1.sym.retourne_symbole());
+						println!("Au tour de {}",self.j1.pseudo);
 					},
 					false =>{
-						println!("{} joue avec les {}",self.j2.pseudo,
-							self.j2.sym.retourne_symbole());
+						println!("Au tour de {}",self.j2.pseudo);
 					},
 				}
 				let mut ligne = String::new();
