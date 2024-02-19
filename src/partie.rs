@@ -2,7 +2,13 @@ use crate::symbole::Symbole;
 use crate::joueur::Joueur;
 use crate::morpion::Morpion;
 use std::io;
+//TODO 
+/*
 
+Multiple partie et sauvgarde de score dans un fichier 
+
+
+*/
 pub struct Partie 
 {
 	pub mrp : Morpion,
