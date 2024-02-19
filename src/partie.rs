@@ -1,7 +1,10 @@
-use crate::symbole::Symbole;
-use crate::joueur::Joueur;
-use crate::morpion::Morpion;
+use crate::{
+  symbole::Symbole,
+  joueur::Joueur,
+  morpion::Morpion,
+};
 use std::io;
+
 //TODO 
 /*
 
@@ -18,6 +21,20 @@ pub struct Partie
 }
 
 impl Partie {
+    pub fn new() -> Self
+    {
+    let mrp : Morpion = Morpion::new();
+    let mut j1 = Joueur::new();
+    let mut j2 = Joueur::new(); 
+      let prt = Partie 
+      {
+          mrp : mrp,
+          j1 : j1,
+          j2 : j2,
+          etats : false,
+      };
+      return prt;
+   }
 	pub fn debut_partie(&mut self)
 	{
 		if self.j1.sym.retourne_symbole() == self.j2.sym.retourne_symbole()
@@ -26,7 +43,7 @@ impl Partie {
 				Symbole::Croix => self.j2.sym = Symbole::Rond,
 				Symbole::Rond => self.j2.sym = Symbole::Croix,
 				Symbole::Vide => {
-					self.j1.sym = Symbole::Rond;
+	        self.j1.sym = Symbole::Rond;
 					self.j2.sym = Symbole::Croix;
 				},
 			}
@@ -105,15 +122,13 @@ impl Partie {
 			}
 		}
 		println!("Fin de la partie !");
+		println!("Voulez vous rejouez ? 0 : oui , 1 : non");
+    let mut restart = String::new();
+    io::stdin().read_line(&mut restart).expect("erreur lors de la lecture de la ligne");
+    let res : usize = restart.trim().parse().expect("erreur lors de la lecture de la ligne");
+    if res == 0
+    {
+      self.debut_partie();
+    }
 	}
-}
-pub fn new(j1 : Joueur , j2 : Joueur, mrp : Morpion) -> Partie 
-{
-	let prt = Partie {
-		mrp : mrp,
-		j1 : j1,
-		j2 : j2,
-		etats : false,
-	};
-	return prt;
 }

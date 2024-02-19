@@ -8,8 +8,19 @@ pub struct Morpion
 
 impl Morpion
 {
+   pub fn new() -> Self
+   {
+     let mut mrp = Morpion {
+       v : Vec::new(),
+     };
+     for _i in 0..3
+     {
+       mrp.v.push([Symbole::Vide,Symbole::Vide,Symbole::Vide]);
+     }
+     return mrp;
+   }
 	pub fn changer_case(&mut self,colone : usize, ligne : usize, jr : &Joueur)
-	{
+    {
 		self.v[ligne][colone] = jr.sym.clone();
 	}
 	pub fn afficher_morpion(&self)
@@ -55,7 +66,8 @@ impl Morpion
 			let mut conteur_c_o : usize = 0;
 			for l in 0..3
 			{
-				match &self.v[l][c] {
+				match &self.v[l][c] 
+			        {
 					Symbole::Croix => conteur_c_x +=1,
 					Symbole::Rond => conteur_c_o +=1,
 					Symbole::Vide => continue,
@@ -91,14 +103,3 @@ impl Morpion
 	}
 }
 
-pub fn new() -> Morpion
-{
-	let mut mrp = Morpion {
-		v : Vec::new(),
-	};
-	for _i in 0..3
-	{
-		mrp.v.push([Symbole::Vide,Symbole::Vide,Symbole::Vide]);
-	}
-	return mrp;
-}
